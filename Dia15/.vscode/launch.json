@@ -1,0 +1,15 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-Dia15Application<Dia15>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.Bootcamp.Dia15.Dia15Application",
+            "projectName": "Dia15",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

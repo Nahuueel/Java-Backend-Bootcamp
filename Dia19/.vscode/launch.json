@@ -1,0 +1,15 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-Dia19Application<dia20>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "dia19.example.dia19.Dia19Application",
+            "projectName": "dia20",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+public class UsersService {
+
+    @Autowired
+    private RestTemplate restTemplate;
+
+    private final String urlUsers = "http://localhost:8000/api/users";
+
+    public List<Users> getAll(){
+        UsersList rawUserList =    restTemplate.getForObject(urlUsers, UsersList.class);
+        return rawUserList.getUsersList();
+    }
+
+    public Users getOne(long id) {
+        ResponseEntity<Users> response = restTemplate.getForEntity(urlUsers + "/" + id, Users.class);
+        return response.getBody();
+    }
+
+    public ResponseMessage save(Users user) {
+        ResponseEntity<String> response = restTemplate.postForEntity(urlUsers, user, String.class);
+        return new ResponseMessage(response.getStatusCodeValue(), response.getBody());
+    }
+
+    public void update(Users user) {
+        restTemplate.put(urlUsers, user);
+    }
+
+    public void delete(long id) {
+        restTemplate.delete(urlUsers + "/" + id);
+    }
+}

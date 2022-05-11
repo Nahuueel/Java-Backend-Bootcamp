@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Materia</title>
+</head>
+<body>
+<div class = "container">
+    <a th:href="@{/materias}"><button style="margin:0px 20px 20px 0px" class="btn btn-dark" >Go back</button></a>
+    <form th:action="@{/materias/create}" th:object="${materia}" method="post">
+        <div class="form-group">
+            <label>Codigo de Materia: </label>
+            <input class="form-control" type="text" name="codMat" th:field="*{codMat}"/>
+        </div>
+        <div class="form-group">
+            <label>Nombre: </label>
+            <input class="form-control" type="text" name="nombre" th:field="*{nombre}"/>
+        </div>
+        <button class="btn btn-dark" type="submit">
+            Create Materia
+        </button>
+        <br>
+    </form>
+</div>
+</body>
+</html>

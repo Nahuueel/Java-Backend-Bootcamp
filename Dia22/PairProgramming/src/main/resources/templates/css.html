@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<header>
+    <title>Coordinates</title>
+</header>
+
+<form th:action="@{/post}" th:object="${newPunto}" method="post">
+    <div>
+        X coordinate: <br>
+        <input type="number" value="-10" th:field="*{x}">
+    </div>
+    <div>
+        Y coordinate: <br>
+        <input type="number" value="-10" th:field="*{y}">
+    </div>
+    <input type="submit" value="Submit">
+</form>
+
+
+
+    <br>
+    <canvas id="myCanvas" width="500" height="500" style="border:1px solid #000000;">
+        <script>
+            var canvas = document.getElementById("myCanvas");
+            var ctx = canvas.getContext("2d");
+            ctx.beginPath();
+            ctx.moveTo(250, 0);
+            ctx.lineTo(250, 500);
+            ctx.moveTo(0,250);
+            ctx.lineTo(500,250);
+            ctx.stroke();
+        </script>
+
+        <th:block th:each="punto : ${Punto}">
+        <script th:inline="javascript">
+            var X = [[${punto.x}]];
+            var Y = [[${punto.y}]];
+            ctx.fillStyle = "#000000";
+            ctx.fillRect(X, Y, 5, 5);
+        </script>
+        </th:block>
+    </canvas>
+
+</html>

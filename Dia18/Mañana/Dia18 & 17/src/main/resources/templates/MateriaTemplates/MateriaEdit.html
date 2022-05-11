@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Materia Edit Form</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+</head>
+
+<body>
+<div class ="container">
+    <form th:acction="@{materias/update/{codMat} (codMat = materia.codMat)}" th:object="${materia}" method="post">
+        <label>Codigo de Materia: </label>
+        <input name="codMat" th:field="*{codMat}" />
+        <br>
+        <label>Nombre: </label>
+        <input type="text" name="nombre" th:field="*{nombre}"/>
+        <br>
+        <button type="submit">Update Materia</button>
+        <br>
+    </form>
+    <a th:href="@{/materias}">Go back</a>
+</div>
+</body>
+</html>

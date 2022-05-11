@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Spotify</title>
+	</head>
+	<form action="" method="post" target="_blank">
+
+        <p>Busqueda de musica: <input type="search" name="busquedamusica" placeholder="Cancion, autor, album...">
+          <input type="submit" value="Buscar">
+          <table class="table">
+
+			<span th:if="${songBeingPlayed != null}">
+				<b th:text="${songBeingPlayed}">is being played</b>
+			</span>
+
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Brand</th>
+					<th>Gender</th>
+                    <th>Time</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+
+				<tr th:each="song: ${songs}">
+                    <td th:text="${song.name}"></td>
+                    <td th:text="${song.brandName}">
+                    </td><td th:text="${song.gender}"></td>
+					<td th:text="${song.time}"></td>
+					<td> 
+						<a th:href="@{/songs{id}(id = ${song.id})}">Play</a>
+					</td>
+					
+				</tr>
+			</tbody>
+		</table>
+        
+        </p>
+      </form>
+	</body>
+</html>

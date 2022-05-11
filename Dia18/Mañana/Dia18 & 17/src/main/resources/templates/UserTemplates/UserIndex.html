@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>User Index</title>
+</head>
+<body>
+
+<div class = "container">
+    <div class="row">
+        <div style="margin: 0px 0px 20px 0px; padding:15px; border: 1px solid #c9c9c9; border-radius: 5px;"
+             class="col-sm-2 text-center">
+            <h3>Menu de Usuarios</h3>
+            <form th:action="@{/users/find}">
+                <h6>Filter by Email:</h6>
+                <input style="width:100%" type="text" th:name="email" placeholder="email:"/>
+                <input style="margin: 10px 0px; width:100%" class="btn btn-outline-dark" type="submit" value="Find"/>
+            </form>
+            <a th:href="@{/users}"><button class="btn btn-dark" style=" width:100%" >View All Users</button></a>
+            <a th:href="@{/users/create}"><button style="margin:10px 0px; width:100%" class="btn btn-dark" >Create an User</button></a>
+            <br>
+        </div>
+        <div class="col-sm-10">
+            <table class ="table table-hover" >
+                <thead>
+                <tr>
+                    <th class="text-center"> Email </th>
+                    <th class="text-center"> Username </th>
+                    <th class="text-center"> Password </th>
+                </tr>
+                </thead>
+                <tbody style="text-align:center">
+                <tr th:each="user: ${users}">
+                    <td th:text = ${user.email}></td>
+                    <td th:text = ${user.username}></td>
+                    <td th:text = ${user.password}></td>
+                    <td>
+                        <a th:href="@{users/update/{email} (email = ${user.email})}"><button class="btn btn-dark" > Update </button></a>
+                        <a th:href="@{users/delete/{email} (email = ${user.email})}"><button class="btn btn-dark" > Delete </button></a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

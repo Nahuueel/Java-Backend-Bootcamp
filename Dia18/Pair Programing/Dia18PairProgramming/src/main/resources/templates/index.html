@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Template Example</title>
+	</head>
+	<body>
+		<a th:href="@{/create}">Create an unidad</a>
+		<table>
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Nombre<th>
+					<th>Ataque</th>
+					<th>Defensa</th>
+					<th>Tipo</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="unidad: ${unidades}">
+					<td th:text="${unidad.getId}"></td>
+					<td th:text="${unidad.getNombre}"></td>
+					<td th:text="${unidad.getAtaque}"></td>
+					<td th:text="${unidad.getDefensa}"></td>
+					<td th:text="${unidad.getTipo}"></td>
+					<td> 
+						<a th:href="@{/update/{id}(id = ${unidad.id})}">Edit</a>
+					 | Delete</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>User Edit Form</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+</head>
+
+<body>
+<div class ="container">
+    <form th:acction="@{users/update/{email}(email = user.email)}" th:object="${user}" method="post">
+        <label>Email: </label>
+        <input name="email" th:field="*{email}" />
+        <br>
+        <label>Username: </label>
+        <input type="text" name="username" th:field="*{username}"/>
+        <br>
+        <label>Password: </label>
+        <input type="text" name="password" th:field="*{password}"/>
+        <br>
+        <button type="submit">Update User</button>
+        <br>
+    </form>
+    <a th:href="@{/users}">Go back</a>
+</div>
+</body>
+</html>
